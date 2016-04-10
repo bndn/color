@@ -1,9 +1,11 @@
-{
+﻿{
     "version": "0.0.0",
-    "description": "",
+    "description": "A wrapper library for coloring.",
     "authors": [
+        "Anders Munck Højsgaard <amuh@itu.dk>"
     ],
     "tags": [
+        "color"
     ],
     "projectUrl": "https://github.itu.dk/bndn/color",
     "licenseUrl": "https://github.itu.dk/bndn/color/blob/master/LICENSE.md",
@@ -20,7 +22,11 @@
     },
 
     "frameworks": {
-        "dnx451": {}
+        "dnx451": {
+            "frameworkAssemblies": {
+                "System.Drawing": "4.0.0.0"
+            }
+        }
     },
 
     "compiler": {
@@ -30,7 +36,8 @@
     },
     "fsharp": {
         "files": [
-            "Program.fs"
+            "Color.fsi",
+            "Color.fs"
         ]
     }
 }
