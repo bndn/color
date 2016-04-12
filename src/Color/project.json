@@ -1,6 +1,6 @@
 ﻿{
     "version": "0.0.0",
-    "description": "A wrapper library for coloring.",
+    "description": "A library for working with colors",
     "authors": [
         "Anders Munck Højsgaard <amuh@itu.dk>"
     ],
