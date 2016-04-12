@@ -1,15 +1,4 @@
 {
-    "version": "0.0.0",
-    "description": "",
-    "authors": [
-        "Anders Munck Højsgaard <amuh@itu.dk>"
-    ],
-    "tags": [
-        "Tests for the color wrapper library"
-    ],
-    "projectUrl": "https://github.itu.dk/bndn/color",
-    "licenseUrl": "https://github.itu.dk/bndn/color/blob/master/LICENSE.md",
-
     "dependencies": {
         "FSharp.Dnx": {
             "type": "build",
