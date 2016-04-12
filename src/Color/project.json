@@ -22,11 +22,7 @@
     },
 
     "frameworks": {
-        "dnx451": {
-            "frameworkAssemblies": {
-                "System.Drawing": "4.0.0.0"
-            }
-        }
+        "dnx451": {}
     },
 
     "compiler": {
