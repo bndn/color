@@ -6,6 +6,7 @@ type Color =
     override c.ToString() =
         match c with
         | C(r, g, b) -> "[R:" + r.ToString() + ", G:" + g.ToString() + ", B:" + b.ToString() + "]"
+
 /// <summary>
 /// Raised in case of attempting to input an invalid float value.
 /// </summary>
@@ -18,17 +19,7 @@ exception InvalidFloatInputException
 /// <param name=g>The green colorspace floating value.</param>
 /// <param name=b>The blue colorspace floating value.</param>
 /// <returns>The created Color.</returns>
-let make r g b =
-    if r > 1.0 || r < 0.0
-    then raise InvalidFloatInputException
-
-    if g > 1.0 || g < 0.0
-    then raise InvalidFloatInputException
-
-    if b > 1.0 || b < 0.0
-    then raise InvalidFloatInputException
-
-    C(r, g, b)
+let make r g b = C(max 0. (min 1. r), max 0. (min 1. g), max 0. (min 1. b))
 
 /// <summary>
 /// Gets the red colorspace floating value from a Color.

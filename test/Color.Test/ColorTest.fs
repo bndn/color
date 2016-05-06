@@ -12,6 +12,15 @@ let ``make constructs a color from three float values between 0.0 and 1.0``() =
     c |> should be instanceOfType<Color>
 
 [<Fact>]
+let ``make clamps float values to a range between 0.0 and 1.0``() =
+    let c = Color.make 1.56 0.44 -0.1
+
+    // Check that the values were clamped.
+    Color.getR c |> should equal 1.0
+    Color.getG c |> should equal 0.44
+    Color.getB c |> should equal 0.0
+
+[<Fact>]
 let ``getR gets the red colorspace of a color``() =
     let c = Color.make 0.56 0.44 0.1
 
