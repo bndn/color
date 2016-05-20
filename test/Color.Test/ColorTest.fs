@@ -16,30 +16,30 @@ let ``make clamps float values to a range between 0.0 and 1.0``() =
     let c = Color.make 1.56 0.44 -0.1
 
     // Check that the values were clamped.
-    Color.getR c |> should equal 1.0
-    Color.getG c |> should equal 0.44
-    Color.getB c |> should equal 0.0
+    Color.getR c |> should (equalWithin 0.01) 1.0
+    Color.getG c |> should (equalWithin 0.01) 0.44
+    Color.getB c |> should (equalWithin 0.01) 0.0
 
 [<Fact>]
 let ``getR gets the red colorspace of a color``() =
     let c = Color.make 0.56 0.44 0.1
 
     // Check red colorspace can be retrieved
-    Color.getR c |> should equal 0.56
+    Color.getR c |> should (equalWithin 0.01) 0.56
 
 [<Fact>]
 let ``getG gets the green colorspace of a color``() =
     let c = Color.make 0.56 0.44 0.1
 
     // Check green colorspace can be retrieved
-    Color.getG c |> should equal 0.44
+    Color.getG c |> should (equalWithin 0.01) 0.44
 
 [<Fact>]
 let ``getB gets the blue colorspace of a color``() =
     let c = Color.make 0.56 0.44 0.1
 
     // Check blue colorspace can be retrieved
-    Color.getB c |> should equal 0.1
+    Color.getB c |> should (equalWithin 0.01) 0.1
 
 [<Fact>]
 let ``scale scales a color by a float value``() =
@@ -47,9 +47,9 @@ let ``scale scales a color by a float value``() =
     let c2 = Color.scale c1 0.33
 
     // Check that the computed scaling is correct within +-0.01
-    abs (Color.getR c2 - 0.1848) |> should be (lessThan 0.01)
-    abs (Color.getG c2 - 0.1452) |> should be (lessThan 0.01)
-    abs (Color.getB c2 - 0.033) |> should be (lessThan 0.01)
+    Color.getR c2 |> should (equalWithin 0.01) 0.1848
+    Color.getG c2 |> should (equalWithin 0.01) 0.1452
+    Color.getB c2 |> should (equalWithin 0.01) 0.033
 
 [<Fact>]
 let ``scale fails if float val is less than 0.0``() =
@@ -77,9 +77,9 @@ let ``merge merges two colors with respect to a reflective surface index represe
     let c3 = merge 0.5 c1 c2
 
     // Check that the computed merging is correct within +-0.01
-    abs (Color.getR c3 - 0.38) |> should be (lessThan 0.01)
-    abs (Color.getG c3 - 0.49) |> should be (lessThan 0.01)
-    abs (Color.getB c3 - 0.15) |> should be (lessThan 0.01)
+    Color.getR c3 |> should (equalWithin 0.01) 0.38
+    Color.getG c3 |> should (equalWithin 0.01) 0.49
+    Color.getB c3 |> should (equalWithin 0.01) 0.15
 
 [<Fact>]
 let ``merge fails if the reflective index is less than 0.0``() =
